@@ -103,7 +103,10 @@ with tab3:
     plt.clf()  # Clear figure after showing
 
     st.write("### Detailed Impact (Summary Plot)")
-    fig2, ax2 = plt.subplots()
+try:
+    fig2, ax2 = plt.subplots(figsize=(8, 6))
     shap.summary_plot(shap_values, df[["CRIM", "RM", "AGE", "TAX", "LSTAT"]], show=False)
     st.pyplot(fig2)
-    plt.clf()  # Clear figure after showing
+    plt.close(fig2)  # Close the figure to free memory
+except Exception as e:
+    st.error(f"Error displaying SHAP summary plot: {e}")
