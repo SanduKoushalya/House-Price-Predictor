@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 # Load model & dataset
 # ----------------------------
 model = joblib.load("Model/model.pkl")
-df = pd.read_csv("data/boston.csv")
+df = pd.read_csv("Data/boston.csv")
 
 # ----------------------------
 # Streamlit App Config
